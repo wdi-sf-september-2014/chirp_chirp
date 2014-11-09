@@ -20,7 +20,7 @@
 	</div>
 <% end %>
 
-<%= will_paginate (@chirps) %>
+
 
 <div class="container margin-top-10">
 	<% @chirps.each do |c| %>
@@ -42,7 +42,10 @@
 	<% end %>
 </div>
 
-<%= will_paginate (@chirps) %>
+<div class="flickr_pagination">
+	<%= will_paginate @chirps %>
+</div>
+
 
 
 <div id="instructions-modal" class="modal fade">

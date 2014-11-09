@@ -13,6 +13,13 @@ body {
 	text-align:center;
 	padding:10px;
 }
+.flickr_pagination {
+  text-align: center;
+  background-color: white;
+  padding: 0.3em;
+  cursor: default;
+  margin-top: 20px;
+}
 
 .margin-top-20 {
 	margin-top:20px;
