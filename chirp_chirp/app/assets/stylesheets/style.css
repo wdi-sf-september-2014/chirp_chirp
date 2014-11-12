@@ -11,6 +11,11 @@ body {
 	text-align: center;
 	margin-top: 25%
 }
+.right {
+	margin-right: 0;
+	margin-left: 90%;
+	display: inline-block;
+}
 .logo {
 	font-family:"Sacramento", Arial;
 	font-size:4em;

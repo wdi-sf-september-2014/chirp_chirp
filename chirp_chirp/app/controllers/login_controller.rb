@@ -23,4 +23,11 @@ class LoginController < ApplicationController
 			redirect_to "/login"
 		end
 	end
+
+	def logout
+		if params[:logout_button]
+			session[:user_id] = false
+			redirect_to "/login"
+		end
+	end
 end

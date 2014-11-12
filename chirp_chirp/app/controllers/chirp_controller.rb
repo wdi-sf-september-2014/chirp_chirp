@@ -9,13 +9,13 @@ class ChirpController < ApplicationController
 
 	def create
 		@num = Random.new.rand(1..4)
-		user = User.where(id: session[:user_id]).first
+		#@user = User.where(id: session[:user_id]).first
 		Chirp.create(
 			chirp: params[:chirp],
 			pic: @num.to_i,
-			user_id: user.id
+			user_id: session[:user_id]
 		)
-		redirect_to "/"
+		redirect_to "/feed"
 	end
 
 	def show
@@ -34,6 +34,6 @@ class ChirpController < ApplicationController
 				chirp: params[:chirp]
 			)
 		end
-		redirect_to "/"
+		redirect_to "/feed"
 	end
 end
