@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'chirp#index'
+  root 'login#index'
+
+  post '/login' => 'login#authenticate'
+
+  get '/feed' => 'chirp#index'
 
   post '/' => 'chirp#create'
 

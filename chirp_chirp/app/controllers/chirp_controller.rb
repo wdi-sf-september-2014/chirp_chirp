@@ -1,17 +1,19 @@
 class ChirpController < ApplicationController
 	WillPaginate.per_page = 10
-	
+
 	def index
-		@chirps = Chirp.paginate(:page => params[:page])
+		@chirps = Chirp.paginate(:page => params[:page]).order('id DESC')
 
 		render 'index'
 	end
 
 	def create
 		@num = Random.new.rand(1..4)
+		user = User.where(id: session[:user_id]).first
 		Chirp.create(
 			chirp: params[:chirp],
-			pic: @num.to_i
+			pic: @num.to_i,
+			user_id: user.id
 		)
 		redirect_to "/"
 	end

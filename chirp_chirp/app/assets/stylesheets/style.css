@@ -4,7 +4,13 @@ body {
 	background:url(/assets/pattern.png);
 	padding-bottom:40px;
 }
-
+.login {
+	margin-right: auto;
+	margin-left: auto;
+	width: 30%;
+	text-align: center;
+	margin-top: 25%
+}
 .logo {
 	font-family:"Sacramento", Arial;
 	font-size:4em;
