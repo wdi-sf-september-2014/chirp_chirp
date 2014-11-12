@@ -1,7 +1,10 @@
 <% if session[:user_id] %>
-	<div class="right">
-		<button name="logout_button" class="btn btn-default">Logout</button>
-	</div>
+	<%= form_tag '/logout' do %>
+		<div class="right">
+			<button name="logout_button" class="btn btn-default btn-lg">Logout</button>
+		</div>
+	<% end %>
+
 
 	<div class="container margin-top-20">
 		<div class="logo border-radius-10">

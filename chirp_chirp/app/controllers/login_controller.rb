@@ -26,6 +26,15 @@ class LoginController < ApplicationController
 
 			redirect_to "/"
 		end
+
+	end
+
+	def logout
+		if params[:logout_button]
+			session[:user_id] = false
+			redirect_to "/"
+			flash[:success] = "User is not authenticated"
+		end
 	end
 
 end

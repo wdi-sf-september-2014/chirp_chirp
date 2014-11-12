@@ -1,10 +1,14 @@
 class ChirpController < ApplicationController
-	WillPaginate.per_page = 10
+	WillPaginate.per_page = 5
 
 	def index
-		@chirps = Chirp.paginate(:page => params[:page]).order('id DESC')
+		if session[:user_id]
+			@chirps = Chirp.paginate(:page => params[:page]).order('id DESC')
 
-		render 'index'
+			render 'index'
+		else 
+			redirect_to '/'
+		end
 	end
 
 	def create
@@ -14,7 +18,7 @@ class ChirpController < ApplicationController
 			chirp: params[:chirp],
 			pic: @num.to_i,
 			user_id: session[:user_id]
-		)
+			)
 		redirect_to "/feed"
 	end
 
@@ -32,15 +36,9 @@ class ChirpController < ApplicationController
 		else
 			chirp.update(
 				chirp: params[:chirp]
-			)
+				)
 		end
 		redirect_to "/feed"
 	end
 
-	def logout
-		if params[:logout_button]
-			session[:user_id] = false
-			redirect_to "/"
-		end
-	end
 end
