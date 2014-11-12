@@ -1,0 +1,86 @@
+@import url(http://fonts.googleapis.com/css?family=Sacramento);
+
+body {
+	background:url(/assets/pattern.png);
+	padding-bottom:40px;
+}
+.login {
+	margin-right: auto;
+	margin-left: auto;
+	width: 30%;
+	text-align: center;
+	margin-top: 25%
+}
+.right {
+	margin-right: 0;
+	margin-left: 90%;
+	display: inline-block;
+}
+.logo {
+	font-family:"Sacramento", Arial;
+	font-size:4em;
+	font-weight:bold;
+	background-color:#FFF;
+	text-align:center;
+	padding:10px;
+}
+.flashmessage {
+	display: inline;
+	color: white;
+	font-size: 1em;
+	border-radius: 1px;
+	padding: 5px;
+}
+.flickr_pagination {
+  text-align: center;
+  background-color: white;
+  padding: 0.3em;
+  cursor: default;
+  margin-top: 20px;
+}
+
+.margin-top-20 {
+	margin-top:20px;
+}
+
+.margin-top-10 {
+	margin-top:10px;
+}
+
+.margin-right-10 {
+	margin-right:10px;
+}
+
+.txt-right {
+	text-align:right;
+}
+
+.border-radius-10 {
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+#chirp-wrapper {
+	background-color:#EBEBEB;
+	padding:20px;
+	display:none;
+}
+
+.one-chirp {
+	background-color:#FFF;
+	padding:20px;
+	font-size:1.7em;
+	margin-top:20px;
+	margin-right: auto;
+	margin-left: auto;
+	font: black;
+}
+
+.one-chirp:first-child {
+	margin-top:0;
+}
+
+#instructions-modal .modal-body {
+	font-size:2em;
+}
