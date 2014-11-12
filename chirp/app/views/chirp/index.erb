@@ -10,7 +10,7 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
-	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -22,81 +22,43 @@
 </div>
 
 <div class="container margin-top-10">
+	<%= form_tag do %>
 	<div id="chirp-wrapper" class="border-radius-10">
 		<div>
-			<textarea id="chirp-text" class="form-control" placeholder="You can chirp here. Make sure it's less than 140 characters!"></textarea>
+			<textarea name="cheerp"id="chirp-text" class="form-control" placeholder="You can chirp here. Make sure it's less than 140 characters!"></textarea>
 		</div>
 		<div class="margin-top-10 txt-right">
 			<button id="cancel-chirp-button" type="button" class="btn btn-default margin-right-10">Don't Chirp</button>
 			<button type="submit" class="btn btn-primary">Chirp!</button>
 		</div>
 	</div>
+	<% end %>
 </div>
 
 <div class="container margin-top-10">
-	<div class="one-chirp border-radius-10">
-		<div class="row">
-			<div class="col-sm-2">
-				<img src="img/birds/bird1.png" class="img-responsive" />
-			</div>
-			<div class="col-sm-10">
-				<div class="margin-top-20">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini.
-				</div>
-				<div class="margin-top-10 txt-right">
-					<a href="#" class="btn btn-primary">Edit Chirp</a>
-				</div>
-			</div>
-		</div>
-	</div>
 
+	<% @tweets.each do |cheerps| %>
 	<div class="one-chirp border-radius-10">
 		<div class="row">
 			<div class="col-sm-2">
-				<img src="img/birds/bird2.png" class="img-responsive" />
+				<img src="<%=cheerps.image%>" class="img-responsive" />
 			</div>
 			<div class="col-sm-10">
 				<div class="margin-top-20">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini.
+					<%=cheerps.tweet%>
 				</div>
 				<div class="margin-top-10 txt-right">
-					<a href="#" class="btn btn-primary">Edit Chirp</a>
+					<a href="/edit/<%=cheerps.id%>" class="btn btn-primary">Edit Chirp</a>
 				</div>
 			</div>
 		</div>
 	</div>
+	<% end %>
 
-	<div class="one-chirp border-radius-10">
-		<div class="row">
-			<div class="col-sm-2">
-				<img src="img/birds/bird3.png" class="img-responsive" />
-			</div>
-			<div class="col-sm-10">
-				<div class="margin-top-20">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini.
-				</div>
-				<div class="margin-top-10 txt-right">
-					<a href="#" class="btn btn-primary">Edit Chirp</a>
-				</div>
-			</div>
-		</div>
-	</div>
+</div>
 
-	<div class="one-chirp border-radius-10">
-		<div class="row">
-			<div class="col-sm-2">
-				<img src="img/birds/bird4.png" class="img-responsive" />
-			</div>
-			<div class="col-sm-10">
-				<div class="margin-top-20">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini.
-				</div>
-				<div class="margin-top-10 txt-right">
-					<a href="#" class="btn btn-primary">Edit Chirp</a>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container" style="text-align:center">
+<%= will_paginate @tweets, renderer: BootstrapPagination::Rails %>
 </div>
 
 <div id="instructions-modal" class="modal fade">
@@ -116,12 +78,15 @@
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-<script src="js/chirp.js"></script>
+<script src="newchirp.js"></script>
+
 
 </body>
 
