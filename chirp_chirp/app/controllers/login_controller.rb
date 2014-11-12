@@ -1,6 +1,10 @@
 class LoginController < ApplicationController
 	def index
-		render 'index'
+		if !session[:user_id]
+			render 'index'
+		else
+			redirect_to "/feed"
+		end
 	end
 
 	def authenticate
@@ -15,19 +19,13 @@ class LoginController < ApplicationController
 			else
 				flash[:error]= "Password is incorrect"
 
-				redirect_to "/login"
+				redirect_to "/"
 			end
 		else
 			flash[:error]= "User not found"
 
-			redirect_to "/login"
+			redirect_to "/"
 		end
 	end
 
-	def logout
-		if params[:logout_button]
-			session[:user_id] = false
-			redirect_to "/login"
-		end
-	end
 end

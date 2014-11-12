@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get '/login' => 'login#index', as: :root
+  root :to => 'login#index'
 
-  post '/login' => 'login#authenticate'
+  post '/' => 'login#authenticate'
 
-  post '/feed' => 'login#logout'
+  post '/feed' => 'chirp#logout'
 
   get '/feed' => 'chirp#index'
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   post 'edit/:id' => 'chirp#update'
 
-  post 'edit/:id' => 'login#logout'
+  post 'edit/:id' => 'chirp#logout'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

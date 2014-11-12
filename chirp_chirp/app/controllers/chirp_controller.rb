@@ -36,4 +36,11 @@ class ChirpController < ApplicationController
 		end
 		redirect_to "/feed"
 	end
+
+	def logout
+		if params[:logout_button]
+			session[:user_id] = false
+			redirect_to "/"
+		end
+	end
 end
