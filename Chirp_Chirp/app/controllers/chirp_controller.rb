@@ -1,6 +1,11 @@
 class ChirpController < ApplicationController
+	
+
 	def index
-		@chirps = Chirping.all
+		@chirps=Chirping.paginate(:page => params[:page], :per_page => 3).order('id DESC')
+		# Post.where(:published => true).paginate(:page => params[:page]).order('id DESC')
+		# @posts = Post.paginate(:page => params[:page])
+		# @chirps = Chirping.all
 		render "index"
 	end
 
